@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Project Name  : City Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Author**: David Waiganjo
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+* City Explorer app is an app design to allow users to type in any city in the US and get Longitude, Latitude and a map of that location. The app uses LocationIQ API to display the map and latitude & loangitude of selected locations.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Designing this app starts with the creation of a basic react app using npx create-react-app. This is followed by creating a component 'CityExplorer' or whichever name is relevant. The designer needs to get a key from the LocationIQ website and read documentation on how to use that API. The designer will need to include .env in the gitignore and create a .env file, where they will store the key to safeguard it from the public. Once appropriate url are generated using locationIQ key and all needed information, this url can be used to update state,which should have been created after the creation of the basic react app
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Architecture
 
-### `npm test`
+This app was designed using React Library,react-bootstrap, css, javascript and html.LocationIQ API is also used.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Change Log
 
-### `npm run build`
+* 7/28/2021 21:02 - the application can access locationIQ API and render results to users.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Credit and Collaborations : Ayrat Gimranov - UML diagram
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+//;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Name of feature : Map ,Lat, long and City name display
 
-### `npm run eject`
+### Estimate of time needed to complete: 5hrs
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Start time: 07:00
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Finish time: 11:00
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Actual time needed to complete: 4hrs
