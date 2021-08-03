@@ -5,7 +5,7 @@
 
 ## Overview
 
-* City Explorer app is an app design to allow users to type in any city in the US and get Longitude, Latitude and a map of that location. The app uses LocationIQ API to display the map and latitude & loangitude of selected locations.
+* City Explorer app is an app design to allow users to type in any city in the US and get Longitude, Latitude and a map of that location. The app uses LocationIQ API to display the map and latitude & loangitude of selected locations. The app also display Weather data for three cities which inlude Paris, Arman and Seattle
 
 ## Getting Started
 
@@ -17,9 +17,9 @@ This app was designed using React Library,react-bootstrap, css, javascript and h
 
 ## Change Log
 
-* 7/28/2021 21:02 - the application can access locationIQ API and render results to users.
+* 7/28/2021 21:02 - the application can access locationIQ API and render results to users. The application also receives  weather data from locat server
 
-## Credit and Collaborations : Ayrat Gimranov - UML diagram
+## Credit and Collaborations : Ayrat Gimranov - UML diagram(Lab06), Collaborations: Alex Payne and Brutaism - UML diagram(Lab07)  
 
 //;
 
@@ -32,3 +32,6 @@ This app was designed using React Library,react-bootstrap, css, javascript and h
 ### Finish time: 11:00
 
 ### Actual time needed to complete: 4hrs
+
+![UML pic](./src/Lab06%20-%20UML.png)
+![UML pic](./src/Lab07%20-%20UML.png)
