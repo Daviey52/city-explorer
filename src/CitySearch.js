@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import Image from 'react-bootstrap/Image';
 import Alert from 'react-bootstrap/Alert';
+import Weather from './Weather';
+import CardColumns from 'react-bootstrap/CardColumns';
 
 class CitySearch extends React.Component {
   constructor (props) {
@@ -15,6 +17,8 @@ class CitySearch extends React.Component {
       renderMap: false,
       renderError: false,
       errorMessage: '',
+      weather: [],
+      renderWeather: false,
     }
   }
 
@@ -32,7 +36,7 @@ class CitySearch extends React.Component {
       console.log(cityLocation.data[0]);
       this.setState({
         renderLatLon: true,
-        cityName: cityLocation.data[0].display_name,
+        //cityName: cityLocation.data[0].display_name,
         lat: cityLocation.data[0].lat,
         lon: cityLocation.data[0].lon,
         renderError: false
@@ -52,9 +56,29 @@ class CitySearch extends React.Component {
         errorMessage: `${error.response.status},${error.response.data.error}`,
       })
     }
+    this.getweather();
+  };
+
+  getweather = async (e) => {
+    let weatherResult = await axios.get(`http://localhost:3001/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${this.state.cityName}`);
+    this.setState({
+      weather: weatherResult.data,
+      renderWeather: true
+    })
   }
 
+
   render() {
+
+
+    let weatherToRender = this.state.weather.map((weatherByDate, index) => (
+      <Weather
+        key={index}
+        description={weatherByDate.description}
+        date={weatherByDate.date}
+      />)
+
+    )
 
     return (
       <main>
@@ -64,6 +88,10 @@ class CitySearch extends React.Component {
           <button> Explore</button>
         </form>
         {this.state.renderLatLon ? <h4>City Name:{this.state.cityName}, lat: {this.state.lat},lon: {this.state.lon}</h4> : ''}
+        <CardColumns>
+          {this.state.renderWeather ? weatherToRender : ''}
+        </CardColumns>
+
         {this.state.renderMap ? <Image src={this.state.map} alt={this.state.cityName} rounded /> : ""}
 
         <Alert>
