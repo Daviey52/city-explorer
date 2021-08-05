@@ -4,6 +4,8 @@ import Image from 'react-bootstrap/Image';
 import Alert from 'react-bootstrap/Alert';
 import Weather from './Weather';
 import CardColumns from 'react-bootstrap/CardColumns';
+import Container from 'react-bootstrap/Container';
+import Carousel from 'react-bootstrap/Carousel';
 
 class CitySearch extends React.Component {
   constructor (props) {
@@ -19,6 +21,8 @@ class CitySearch extends React.Component {
       errorMessage: '',
       weather: [],
       renderWeather: false,
+      movies: [],
+      renderMovie: false
     }
   }
 
@@ -57,13 +61,25 @@ class CitySearch extends React.Component {
       })
     }
     this.getweather();
+    this.getMovies();
   };
 
   getweather = async (e) => {
-    let weatherResult = await axios.get(`http://localhost:3001/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${this.state.cityName}`);
+    let weatherResult = await axios.get(`http://localhost:3001/weather?lat=${this.state.lat}&lon=${this.state.lon}`);
     this.setState({
       weather: weatherResult.data,
       renderWeather: true
+    })
+  }
+
+  getMovies = async (e) => {
+    //let searchQuery = this.state.cityName
+
+    let movieResult = await axios.get(`http://localhost:3001/movie?searchQuery=${this.state.cityName}`)
+    console.log(movieResult.data)
+    this.setState({
+      movies: movieResult.data,
+      renderMovie: true
     })
   }
 
@@ -80,6 +96,27 @@ class CitySearch extends React.Component {
 
     )
 
+    let moviesToRender = this.state.movies.map((video, index) => (
+      < Carousel.Item key={index} >
+        <img
+          className="d-block w-100"
+          src={`https://image.tmdb.org/t/p/w300${video.image_url}`}
+
+          alt={video.overview}
+        />
+        <Carousel.Caption>
+          <h3>Title: {video.title}</h3>
+          <p> Average votes:{video.average_votes}</p>
+          <p>Total votes:{video.total_votes}</p>
+          <p>Popurarity :{video.popurality}</p>
+          <p>Video Release date{video.released_on}</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+    )
+    )
+    console.log(this.state)
+
     return (
       <main>
         <h1>City Explorer</h1>
@@ -91,6 +128,11 @@ class CitySearch extends React.Component {
         <CardColumns>
           {this.state.renderWeather ? weatherToRender : ''}
         </CardColumns>
+        <Container>
+          <Carousel>
+            {this.state.renderMovie ? moviesToRender : ""}
+          </Carousel>
+        </Container>
 
         {this.state.renderMap ? <Image src={this.state.map} alt={this.state.cityName} rounded /> : ""}
 
@@ -98,10 +140,9 @@ class CitySearch extends React.Component {
           {this.state.renderError ? <Alert.Heading>{this.state.errorMessage}</Alert.Heading> : ''}
         </Alert>
 
-      </main>
+      </main >
     )
   }
 }
-
 
 export default CitySearch;
