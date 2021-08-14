@@ -145,4 +145,6 @@ class CitySearch extends React.Component {
   }
 }
 
+// let new = class
+
 export default CitySearch;
